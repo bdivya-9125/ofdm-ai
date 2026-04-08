@@ -436,6 +436,4 @@ def retrain(epochs: int = Query(default=2000, ge=100, le=10000)):
     """Re-train the model (long-running – use async in production)."""
     train_model(epochs=epochs)
     return {"status": "done", "epochs": epochs, "final_loss": _loss_history[-1]}
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("backend:app", host="0.0.0.0", port=10000)
+
